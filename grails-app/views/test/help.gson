@@ -1,0 +1,9 @@
+import myapp.Programme
+
+model {
+    Programme programme
+
+}
+System.out.println "Model is $binding.variables"
+
+json g.render(programme)

@@ -46,10 +46,22 @@ dependencyManagement {
     applyMavenExclusions false
 }
 
+configurations.all {
+    exclude module:'grails-datastore-simple'
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if( details.requested.group == 'org.grails' &&
+                details.requested.name.startsWith('grails-datastore')) {
+            details.useVersion("6.1.2.RELEASE")
+        }
+    }
+}
+
 dependencies {
     assets "com.craigburke.angular:angular-template-asset-pipeline:2.2.6"
     assets "com.craigburke.angular:angular-annotate-asset-pipeline:2.4.0"
     assets "com.craigburke:js-closure-wrap-asset-pipeline:1.2.0"
+    compile "org.mongodb:mongodb-driver:3.4.2"
+    compile 'org.grails.plugins:mongodb:6.1.2'
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
@@ -67,7 +79,7 @@ dependencies {
     compile "org.grails:grails-logging"
     compile "org.grails.plugins:cache"
     compile "org.grails:grails-plugin-gsp"
-    compile "org.grails.plugins:hibernate4"
+    //compile "org.grails.plugins:hibernate4"
     compile "org.hibernate:hibernate-ehcache"
     compile "org.grails.plugins:views-json"
     console "org.grails:grails-console"
