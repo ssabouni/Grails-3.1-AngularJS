@@ -14,5 +14,9 @@ function QueryController(SearchFactory){
         });
     };
 
+    vm.arrayToString = function(string){
+        return string.join(", ");
+    };
+
 
 }

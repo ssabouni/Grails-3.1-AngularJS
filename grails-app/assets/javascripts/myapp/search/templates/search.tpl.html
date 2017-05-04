@@ -6,6 +6,24 @@
     <button class="btn btn-default" type="button">Advanced Search</button>
 
 </div>
+
+<div class="panel panel-default" ng-repeat="programme in ctrl.results">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{programme.complete_title.join(", ")}}
+        </h3>
+    </div>
+    <div class="panel-body">
+        {{programme.complete_title.join(", ")}}
+        {{programme.masterbrand}}
+        {{programme.epoch_start}}
+        {{programme.epoch_end}}
+        {{programme.tags.join(", ")}}
+        {{programme.categories.join(", ")}}
+
+    </div>
+</div>
+
 <div>
     <div class ="panel panel-default" ng-repeat="programme in ctrl.results">
         <div class="panel-body">
