@@ -1,0 +1,7 @@
+import myapp.Programme
+
+model{
+    Programme programme
+}
+
+json g.render(programme)

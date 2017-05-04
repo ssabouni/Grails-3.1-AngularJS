@@ -6,10 +6,13 @@ angular.module("myapp.search").controller("QueryController", QueryController);
 
 function QueryController(SearchFactory){
     var vm = this;
-    SearchFactory.get({action:'help'}, function(response){
-        vm.results = response;
-        vm.hello = "HELLO";
+    vm.keywords = undefined;
+    vm.search = function(){
+        SearchFactory.list({action:'search', keywords:vm.keywords}, function(response){
+            vm.results = response;
+            vm.hello="HELLO";
+        });
+    };
 
-    });
 
 }

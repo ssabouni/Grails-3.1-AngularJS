@@ -1,9 +1,17 @@
+<div class="navbar-form">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search for programmes, tags, categories..." name="srch-term" id="srch-term" ng-model="ctrl.keywords" >
+    </div>
+    <button class="btn btn-default" type="submit" ng-click="ctrl.search()">Search<i class="glyphicon glyphicon-search"></i></button>
+    <button class="btn btn-default" type="button">Advanced Search</button>
+
+</div>
 <div>
-    <div class ="panel panel-default">
+    <div class ="panel panel-default" ng-repeat="programme in ctrl.results">
         <div class="panel-body">
             <div class="row">
                 <div class="col-mod-12">
-                    <p>{{ctrl.results.pid}}</p>
+                    <p>{{programme.pid}}</p>
                 </div>
             </div>
         </div>

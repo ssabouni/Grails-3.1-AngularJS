@@ -4,9 +4,9 @@ class TestController {
 	//static responseFormats = ['json', 'xml']
     def testService
 
-    def help(){
-        def result = testService.testMethod()
-        respond result
+    def search(String keywords){
+        def results = testService.testMethod(keywords)
+        respond results, model:[resultsCount: results.size()]
     }
 
     def bbc(){

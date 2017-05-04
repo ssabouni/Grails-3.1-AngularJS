@@ -6,11 +6,11 @@ import grails.transaction.Transactional
 @Transactional
 class TestService {
 
-    def testMethod() {
-        //def result = Programme.findAllById("5906252136ac939ea93b40d2")
+    def testMethod(String keywords) {
+        def count = Programme.countHits(keywords)
+        List<Programme> programmes = Programme.searchTop(keywords, count)
 
-       def result = Programme.findByPid("p003k9ct")
-        return result
+        return programmes
     }
 
 

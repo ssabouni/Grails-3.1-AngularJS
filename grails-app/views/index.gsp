@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Grails Angular Profile Demo</title>
+    <title>LSDDA BBC App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <asset:stylesheet href="materialize/css/materialize.min.css"/>
@@ -23,7 +23,7 @@
 <nav>
     <div class="container">
     <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Grails</a>
+        <a href="#!" class="brand-logo">BBC</a>
         <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">User<i class="material-icons right">arrow_drop_down</i></a></li>
