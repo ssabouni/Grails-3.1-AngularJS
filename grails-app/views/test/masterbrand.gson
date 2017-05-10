@@ -1,8 +1,8 @@
 import myapp.Programme
 
 model{
-    Iterable<String> categories
+    Iterable<String> masterbrand
 }
 System.out.println "Model is $binding.variables"
 
-json (categories)
+json (masterbrand)

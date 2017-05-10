@@ -11,13 +11,13 @@
             <div class="input-field col s6">
                 Start Date:
                 <div class="input-field inline">
-                    <input type="date" class="datepicker">
+                    <input type="date" class="datepicker" ng-model="ctrl.startDate">
                 </div>
             </div>
             <div class="input-field col s6">
                 End Date:
                 <div class="input-field inline">
-                    <input type="date" class="datepicker">
+                    <input type="date" class="datepicker" ng-model="ctrl.endDate">
                 </div>
             </div>
 
@@ -37,6 +37,7 @@
             </div>
         </div>
 
+
         <div class="row">
             <div class="input-field col s12">
                 <select ng-model="ctrl.media">
@@ -47,14 +48,27 @@
                 <label>Choose the media type</label>
             </div>
         </div>
-        </div>
 
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <select ng-model="ctrl.selectedBrand">
+                        <option value="" disabled selected>Select the channel</option>
+                        <option ng-repeat="brand in ctrl.masterbrands" value="{{brand}}"> {{brand}}
+                        </option>
+                        $('select').material_select();
+                    </select>
+                    <label>Choose the channel</label>
+                </div>
+            </div>
+
+
+        </div>
 
         <button class="btn btn-default" type="submit" ng-click="ctrl.search()" ng-show="!ctrl.showAdvanced">Search<i class="glyphicon glyphicon-search"></i></button>
         <button class="btn btn-default" type="button" ng-click="ctrl.advancedSearch()" ng-show="ctrl.showAdvanced">Advanced Search</button>
 
         <a class="button" ng-click="ctrl.showForm()">{{ctrl.optionsText}}</a>
-
 
     </form>
 </div>

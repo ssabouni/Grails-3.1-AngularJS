@@ -10,6 +10,9 @@
     <asset:stylesheet href="materialize/css/materialize.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <asset:stylesheet src="stylesheet/isteven-multi-select.css"/>
+    <asset:stylesheet src="stylesheet/default.css"/>
+    <asset:stylesheet src="stylesheet/default.date.css"/>
+    <asset:stylesheet src="stylesheet/default.time.css"/>
 
     <script type="text/javascript">
         window.contextPath = "${request.contextPath}";
@@ -43,8 +46,10 @@
     <asset:javascript src="materialize/js/materialize.min.js"></asset:javascript>
     <asset:javascript src="myapp/app" />
     <asset:javascript src="angular/isteven-multi-select.js"/>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <asset:javascript src="angular/picker.js"/>
+    <asset:javascript src="angular/picker.date.js"/>
+    <asset:javascript src="angular/picket.time.js"/>
+
 
 <script>
     $(function(){

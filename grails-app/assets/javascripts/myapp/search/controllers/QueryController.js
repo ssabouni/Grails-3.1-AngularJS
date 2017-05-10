@@ -18,17 +18,28 @@ function QueryController(SearchFactory){
         return string.join(", ");
     };
 
-    SearchFactory.list({action:'categories'}, function(response){
-        vm.categories = response;
+    vm.selectedMasterbrand=undefined;
+    SearchFactory.list({action:'masterbrand'}, function(response){
+        vm.masterbrands = response;
+        vm.hello="HELLO";
+
     });
+
+ /*   SearchFactory.list({action:'categories'}, function(response){
+        vm.categories = response;
+    });*/
 
     vm.selectedCategories = [];
 
     vm.dubbed = undefined;
     vm.signed= undefined;
     vm.media= undefined;
+    vm.startDate = undefined;
+    vm.endDate = undefined;
+
     vm.advancedSearch = function(){
-        SearchFactory.list({action:'advanced', dubbed: vm.dubbed, signed: vm.signed, media:vm.media}, function(response){
+        SearchFactory.list({action:'advanced', dubbed: vm.dubbed, signed: vm.signed, media:vm.media,
+            brand: vm.brand}, function(response){
             vm.results = response;
             vm.hello="HELLO";
         });
@@ -47,6 +58,8 @@ function QueryController(SearchFactory){
             vm.optionsText = "Hide Options"
         }
     };
+
+
 
 
 }

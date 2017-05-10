@@ -24,8 +24,15 @@ class TestController {
         respond categories, model:[categories:categories]
     }
 
-    def advanced(boolean dubbed, boolean signed, String media){
-        def results = testService.advancedSearch(dubbed, signed, media)
+    def masterbrand(){
+        def masterbrand = testService.masterbrandMethod()
+        respond masterbrand, model:[masterbrand:masterbrand]
+    }
+
+    def advanced(boolean dubbed, boolean signed, String media, String masterbrand){
+        //def startTime = params.getDate("startTime")
+        //def endTime = params.getDate("endTime")
+        def results = testService.advancedSearch(dubbed, signed, media, masterbrand)
         respond results, model:[advancedResults: results]
     }
 }

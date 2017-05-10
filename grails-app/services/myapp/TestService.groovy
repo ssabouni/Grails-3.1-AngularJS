@@ -39,15 +39,16 @@ class TestService {
     def categoriesMethod(){
         MongoCursor<String> cursor = collection.distinct("categories", String.class).iterator()
 
-        def category = [:]
-        cursor.each{
-            category.put("category", it)
-        }
-
-        return category
+        return cursor.toList().sort()
     }
 
-    def advancedSearch(boolean dubbed, boolean signed, String media){
+    def masterbrandMethod(){
+        MongoCursor<String> cursor = collection.distinct("masterbrand", String.class).iterator()
+
+        return cursor.toList().sort()
+    }
+
+    def advancedSearch(boolean dubbed, boolean signed, String media, String masterbrand){
         String dubbedCategory = "dubbedaudiodescribedaudio described"
         String signedCategory = "signedsigned"
 
@@ -70,6 +71,19 @@ class TestService {
 
         if(media!=null){
             objectives.put("media_type", new BasicDBObject('$eq', media))
+        }
+
+        /*
+        if(startTime!=null){
+            objectives.put("epoch_start", new BasicDBObject('$gte', startTime))
+        }
+
+        if(endTime!=null){
+            objectives.put("epoch_start", new BasicDBObject('$lte', endTime))
+        }*/
+
+        if(masterbrand!=null){
+            objectives.put("masterbrand", new BasicDBObject('$eq', masterbrand))
         }
 
         FindIterable iterable = collection.find(objectives)
