@@ -24,4 +24,8 @@ class TestController {
         respond categories, model:[categories:categories]
     }
 
+    def advanced(boolean dubbed, boolean signed, String media){
+        def results = testService.advancedSearch(dubbed, signed, media)
+        respond results, model:[advancedResults: results]
+    }
 }

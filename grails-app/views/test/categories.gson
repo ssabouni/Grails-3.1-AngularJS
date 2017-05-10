@@ -1,8 +1,12 @@
 import myapp.Programme
 
 model{
-    Iterable<String> categories
+    Map<String, String> categories
 }
 System.out.println "Model is $binding.variables"
 
-json (categories)
+def theCategories =[]
+categories.each {
+    theCategories.add(it)
+}
+json (theCategories)

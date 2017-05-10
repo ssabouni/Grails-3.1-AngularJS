@@ -1,6 +1,8 @@
 package myapp
 
+import com.mongodb.BasicDBObject
 import com.mongodb.MongoClient
+import com.mongodb.client.FindIterable
 import com.mongodb.client.MongoCollection
 import com.mongodb.client.MongoCursor
 import com.mongodb.client.MongoDatabase
@@ -37,7 +39,43 @@ class TestService {
     def categoriesMethod(){
         MongoCursor<String> cursor = collection.distinct("categories", String.class).iterator()
 
-        return cursor.toList().sort()
+        def category = [:]
+        cursor.each{
+            category.put("category", it)
+        }
+
+        return category
+    }
+
+    def advancedSearch(boolean dubbed, boolean signed, String media){
+        String dubbedCategory = "dubbedaudiodescribedaudio described"
+        String signedCategory = "signedsigned"
+
+        BasicDBObject objectives = new BasicDBObject()
+
+        if (dubbed && signed){
+            objectives.put("categories", new BasicDBObject('$all', [dubbedCategory, signedCategory]))
+        }
+
+        else if (dubbed){
+            objectives.put("categories", new BasicDBObject('$eq', dubbedCategory))
+        }
+
+        else if (signed){
+            objectives.put("categories", new BasicDBObject('$eq', signedCategory))
+        }
+        else{
+
+        }
+
+        if(media!=null){
+            objectives.put("media_type", new BasicDBObject('$eq', media))
+        }
+
+        FindIterable iterable = collection.find(objectives)
+
+        return iterable;
+
     }
 
 

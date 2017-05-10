@@ -2,48 +2,60 @@
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search for programmes, tags, categories..." name="srch-term" id="srch-term" ng-model="ctrl.keywords" >
     </div>
-    <button class="btn btn-default" type="submit" ng-click="ctrl.search()">Search<i class="glyphicon glyphicon-search"></i></button>
-    <button class="btn btn-default" type="button">Advanced Search</button>
-
 </div>
 
 <div class="row">
     <form class="col s12">
+        <div ng-show="ctrl.showAdvanced">
         <div class="row">
             <div class="input-field col s6">
                 Start Date:
                 <div class="input-field inline">
-                    <input id="start_date" type="date" class="datepicker">
+                    <input type="date" class="datepicker">
                 </div>
             </div>
             <div class="input-field col s6">
                 End Date:
                 <div class="input-field inline">
-                    <input id="end_date" type="date" class="datepicker">
+                    <input type="date" class="datepicker">
                 </div>
             </div>
 
         </div>
+
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Categories" id="categories" type="text" >
-                <label for="categories">Categories</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="Tags" id="tags" type="text">
-                <label for="tags">Tags</label>
-            </div>
-        </div>
-        <p>
-            <input type="checkbox" id="signed-box" />
+
+            <p>
+            <input type="checkbox" id="signed-box" ng-model="ctrl.signed"/>
             <label for="signed-box">Signed</label>
         </p>
         <p>
-            <input type="checkbox" id="dubbed-box" />
+            <input type="checkbox" id="dubbed-box" ng-model="ctrl.dubbed" />
             <label for="dubbed-box">Dubbed</label>
         </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <select ng-model="ctrl.media">
+                    <option value="" disabled selected>Choose the media type</option>
+                    <option value="1">Audio</option>
+                    <option value="2">Video</option>
+                </select>
+                <label>Choose the media type</label>
+            </div>
+        </div>
+        </div>
+
+
+        <button class="btn btn-default" type="submit" ng-click="ctrl.search()" ng-show="!ctrl.showAdvanced">Search<i class="glyphicon glyphicon-search"></i></button>
+        <button class="btn btn-default" type="button" ng-click="ctrl.advancedSearch()" ng-show="ctrl.showAdvanced">Advanced Search</button>
+
+        <a class="button" ng-click="ctrl.showForm()">{{ctrl.optionsText}}</a>
+
+
     </form>
 </div>
 

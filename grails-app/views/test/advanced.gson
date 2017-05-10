@@ -1,0 +1,14 @@
+import com.mongodb.client.FindIterable
+import myapp.Programme
+
+model{
+    FindIterable<Programme> advancedResults
+}
+System.out.println "Model is $binding.variables"
+
+
+json (
+        advancedResults.each{
+            it
+        }
+)

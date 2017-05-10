@@ -11,5 +11,8 @@
 //= require_tree directives
 //= require_tree domain
 //= require_tree templates
+//= require /angular/isteven-angular-multiselect
 
-angular.module("myapp.search", ["myapp.core"]);
+angular.module("myapp.search", [
+    "myapp.core",
+    "isteven-multi-select"]);

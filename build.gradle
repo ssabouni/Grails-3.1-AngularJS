@@ -97,20 +97,33 @@ task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
 }
 bower {
-    'angular'('1.4.x') {
+    'angular'('1.5.x') {
         source 'angular.js'
     }
-    'angular-resource'('1.4.x') {
+    'angular-resource'('1.5.x') {
         source 'angular-resource.js' >> '/angular/'
     }
-    'angular-mocks'('1.4.x') {
+    'angular-mocks'('1.5.x') {
         source 'angular-mocks.js' >> '/angular/'
     }
-    'angular-route'('1.4.x'){
+    'angular-route'('1.5.x'){
         source 'angular-route.js' >> '/angular/'
     }
     'jquery'(''){
 
+    }
+    'isteven-angular-multiselect'('v4.0.0'){
+        source 'isteven-multi-select.js'>> '/angular/'
+        source 'isteven-multi-select.css'>> '/stylesheet/'
+    }
+
+    'pickadate'{
+        source 'lib/picker.js'>> '/angular/'
+        source 'lib/picker.date.js'>> '/angular/'
+        source 'lib/picker.time.js'>> '/angular/'
+        source 'lib/themes/default.css'>> '/stylesheet/'
+        source 'lib/themes/default.date.css'>> '/stylesheet/'
+        source 'lib/themes/default.time.css'>> '/stylesheet/'
     }
 }
 
