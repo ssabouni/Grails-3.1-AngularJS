@@ -21,10 +21,11 @@
     <li class="divider"></li>
     <li><a href="#index">Home</a></li>
 </ul>
+
 <nav>
     <div class="container">
     <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">BBC</a>
+        <a href="#/" class="brand-logo">BBC</a>
         <ul class="right hide-on-med-and-down">
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">User<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -34,6 +35,7 @@
 </nav>
 <div class="container">
     <div ng-view></div>
+
 </div>
     <div class="footer" role="contentinfo"></div>
     <asset:javascript src="jquery/jquery.js"></asset:javascript>

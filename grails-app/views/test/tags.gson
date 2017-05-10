@@ -1,0 +1,9 @@
+import myapp.Programme
+
+model{
+    Iterable<String> tags
+}
+System.out.println "Model is $binding.variables"
+
+
+json (tags)

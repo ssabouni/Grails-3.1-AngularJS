@@ -1,0 +1,8 @@
+import myapp.Programme
+
+model{
+    Iterable<Programme> signedList
+}
+System.out.println "Model is $binding.variables"
+
+json tmpl.programme(signedList ?:[])

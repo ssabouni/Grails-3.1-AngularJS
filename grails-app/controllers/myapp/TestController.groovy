@@ -5,15 +5,23 @@ class TestController {
     def testService
 
     def search(String keywords){
-        def results = testService.testMethod(keywords)
+        def results = testService.searchMethod(keywords)
         respond results, model:[resultsCount: results.size()]
     }
 
-    def bbc(){
-        render "Hello"
+    def signed(){
+        def results = testService.signedMethod()
+        respond results, model:[resultsCount: results.size()]
     }
 
-    def index(){
-        render "Hello World"
+    def tags(){
+        def tags = testService.tagsMethod()
+        respond tags, model:[tags:tags]
     }
+
+    def categories(){
+        def categories = testService.categoriesMethod()
+        respond categories, model:[categories:categories]
+    }
+
 }

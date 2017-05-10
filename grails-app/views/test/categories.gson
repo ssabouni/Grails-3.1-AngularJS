@@ -1,0 +1,8 @@
+import myapp.Programme
+
+model{
+    Iterable<String> categories
+}
+System.out.println "Model is $binding.variables"
+
+json (categories)
