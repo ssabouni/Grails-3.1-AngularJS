@@ -40,17 +40,16 @@
     <asset:javascript src="angular/picker.date.js"/>
     <asset:javascript src="angular/picket.time.js"/>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
-
 
 <script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+
     $(function(){
         $(".dropdown-button").dropdown();
     });
 
-    $(document).ready(function() {
-        $('select').material_select();
-    });
 
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month

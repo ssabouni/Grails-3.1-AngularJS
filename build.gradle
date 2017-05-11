@@ -125,6 +125,7 @@ bower {
         source 'lib/themes/default.date.css'>> '/stylesheet/'
         source 'lib/themes/default.time.css'>> '/stylesheet/'
     }
+
 }
 
 karma {

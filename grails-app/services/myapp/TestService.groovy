@@ -95,9 +95,26 @@ class TestService {
             objectives.put("is_clip", clip)
         }
 
+
+        // the default is to sort by epoch_start in descending order
         def sorting = ["epoch_start": -1]
 
-        FindIterable iterable = collection.find(objectives).sort(sorting)
+        FindIterable iterable
+
+        // if no keywords were passed, just sort by epoch_start
+        if (keywords == null) {
+            iterable = collection.find(objectives).sort(sorting)
+        }
+        // if keywords were passed, sort by text search relevance AND epoch_start
+        else
+        {
+            def score = ['$meta': "textScore"]
+            def proj = ["score": score]
+            iterable = collection.find(objectives).projection(proj).sort(proj)
+        }
+
+
+        //FindIterable iterable = collection.find(objectives).sort(sorting)
 
 
         return iterable;

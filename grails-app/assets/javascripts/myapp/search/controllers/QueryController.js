@@ -66,10 +66,6 @@ function QueryController(SearchFactory){
         }
     };
 
-    // convert clip to yes if true, no if false
-    vm.covertClip = function(){
-    }
-
 
 
 

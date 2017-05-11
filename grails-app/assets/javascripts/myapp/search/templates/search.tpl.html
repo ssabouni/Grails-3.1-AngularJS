@@ -58,18 +58,28 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <select ng-model="ctrl.selectedBrand">
+                    <select name="Consecutivo" ng-model="ctrl.selectedBrand">
                         <option value="" disabled selected>Select the channel</option>
-                        <option ng-repeat="brand in ctrl.masterbrands" value="{{brand}}"> {{brand}}
+                        <option ng-repeat="brand in ctrl.masterbrands" value="{{brand}}">
+                            {{brand}}
                         </option>
-                        $('select').material_select();
+                        <script>
+                            $('select').material_select();
+
+                        </script>
+
+
                     </select>
+
                     <label>Choose the channel</label>
                 </div>
             </div>
 
 
+
         </div>
+
+
 
         <button class="btn btn-default" type="submit" ng-click="ctrl.search()" ng-show="!ctrl.showAdvanced">Search<i class="glyphicon glyphicon-search"></i></button>
         <button class="btn btn-default" type="button" ng-click="ctrl.advancedSearch()" ng-show="ctrl.showAdvanced">Advanced Search</button>
@@ -88,12 +98,17 @@
     <li class="collection-item">Available From: {{programme.epoch_start|date:'dd-MMM-yyyy'}}</li>
     <li class="collection-item">Available To: {{programme.epoch_end|date:'dd-MMM-yyyy'}}</li>
     <li class="collection-item">Channel: {{programme.masterbrand}}</li>
-    <li class="collection-item" >Tags: {{programme.tags.join(", ")}}</li>
-    <li class="collection-item">Categories: {{programme.categories.join(", ")}}</li>
-    <li class="collection-item">Clip: {{programme.is_clip}}</li>
+    <li class="collection-item">Media Type: {{programme.media_type}}</li>
+    <!--<li class="collection-item">Clip: {{ctrl.clipType}}</li>-->
+    <li class="collection-item" ng-if="programme.is_clip == 0">Clip: No</li>
+    <li class="collection-item" ng-if="programme.is_clip == 1">Clip: Yes</li>
+    <li class="collection-item" ng-if="programme.tags">Tags: {{programme.tags.join(", ")}}</li>
+    <li class="collection-item" ng-if="programme.categories">Categories: {{programme.categories.join(", ")}}</li>
 
 
 </ul>
+
+
 </div>
 
 
