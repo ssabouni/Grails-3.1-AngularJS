@@ -7,10 +7,15 @@ angular.module("myapp.search").controller("QueryController", QueryController);
 function QueryController(SearchFactory){
     var vm = this;
     vm.keywords = undefined;
+
+    vm.showResults=false;
     vm.search = function(){
         SearchFactory.list({action:'search', keywords:vm.keywords}, function(response){
             vm.results = response;
+            vm.resultsLength= vm.results.length;
             vm.hello="HELLO";
+
+            vm.showResults=true;
         });
     };
 
@@ -22,7 +27,6 @@ function QueryController(SearchFactory){
     SearchFactory.list({action:'masterbrand'}, function(response){
         vm.masterbrands = response;
         vm.hello="HELLO";
-
     });
 
  /*   SearchFactory.list({action:'categories'}, function(response){
@@ -39,9 +43,12 @@ function QueryController(SearchFactory){
 
     vm.advancedSearch = function(){
         SearchFactory.list({action:'advanced', dubbed: vm.dubbed, signed: vm.signed, media:vm.media,
-            brand: vm.brand}, function(response){
+            brand: vm.brand, keywords:vm.keywords, clip:vm.clip}, function(response){
             vm.results = response;
+            vm.resultsLength= vm.results.length;
             vm.hello="HELLO";
+
+            vm.showResults=true;
         });
     };
 
@@ -58,6 +65,10 @@ function QueryController(SearchFactory){
             vm.optionsText = "Hide Options"
         }
     };
+
+    // convert clip to yes if true, no if false
+    vm.covertClip = function(){
+    }
 
 
 

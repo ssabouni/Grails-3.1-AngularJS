@@ -48,7 +48,8 @@ class TestService {
         return cursor.toList().sort()
     }
 
-    def advancedSearch(boolean dubbed, boolean signed, String media, String masterbrand){
+    def advancedSearch(boolean dubbed, boolean signed, String media, String masterbrand, String keywords,
+                       int clip){
         String dubbedCategory = "dubbedaudiodescribedaudio described"
         String signedCategory = "signedsigned"
 
@@ -86,7 +87,18 @@ class TestService {
             objectives.put("masterbrand", new BasicDBObject('$eq', masterbrand))
         }
 
-        FindIterable iterable = collection.find(objectives)
+        if(keywords!=null){
+            objectives.put('$text', new BasicDBObject('$search', keywords))
+        }
+
+        if(clip!=null){
+            objectives.put("is_clip", clip)
+        }
+
+        def sorting = ["epoch_start": -1]
+
+        FindIterable iterable = collection.find(objectives).sort(sorting)
+
 
         return iterable;
 

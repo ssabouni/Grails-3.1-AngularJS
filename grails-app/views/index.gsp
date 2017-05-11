@@ -19,21 +19,11 @@
     </script>
 </head>
 <body ng-app="myapp">
-<ul id="dropdown1" class="dropdown-content">
-    <li><a href="#user/create">Create</a></li>
-    <li><a href="#user">List</a></li>
-    <li class="divider"></li>
-    <li><a href="#index">Home</a></li>
-</ul>
 
 <nav>
     <div class="container">
     <div class="nav-wrapper">
         <a href="#/" class="brand-logo">BBC</a>
-        <ul class="right hide-on-med-and-down">
-            <!-- Dropdown Trigger -->
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">User<i class="material-icons right">arrow_drop_down</i></a></li>
-        </ul>
     </div>
     </div>
 </nav>
@@ -49,6 +39,8 @@
     <asset:javascript src="angular/picker.js"/>
     <asset:javascript src="angular/picker.date.js"/>
     <asset:javascript src="angular/picket.time.js"/>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
 
 
 <script>

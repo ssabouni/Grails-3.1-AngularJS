@@ -34,6 +34,12 @@
             <input type="checkbox" id="dubbed-box" ng-model="ctrl.dubbed" />
             <label for="dubbed-box">Dubbed</label>
         </p>
+
+        <p>
+           <input type="checkbox" id="clip-box" ng-model="ctrl.clip" />
+           <label for="clip-box">Clip</label>
+         </p>
+
             </div>
         </div>
 
@@ -42,8 +48,8 @@
             <div class="input-field col s12">
                 <select ng-model="ctrl.media">
                     <option value="" disabled selected>Choose the media type</option>
-                    <option value="1">Audio</option>
-                    <option value="2">Video</option>
+                    <option value="audio">Audio</option>
+                    <option value="video">Video</option>
                 </select>
                 <label>Choose the media type</label>
             </div>
@@ -72,15 +78,22 @@
 
     </form>
 </div>
+<div ng-show="ctrl.showResults">
+<p>
 
+    <h4>{{ctrl.resultsLength}} results found.</h4>
+</p>
 <ul class="collection with-header" ng-repeat="programme in ctrl.results">
     <li class="collection-header"><h4>{{programme.complete_title.join(", ")}}</h4></li>
-    <li class="collection-item">Airing Start Date: {{programme.epoch_start|date:'dd-MMM-yyyy'}}</li>
-    <li class="collection-item">Airing End Date: {{programme.epoch_end|date:'dd-MMM-yyyy'}}</li>
+    <li class="collection-item">Available From: {{programme.epoch_start|date:'dd-MMM-yyyy'}}</li>
+    <li class="collection-item">Available To: {{programme.epoch_end|date:'dd-MMM-yyyy'}}</li>
     <li class="collection-item">Channel: {{programme.masterbrand}}</li>
     <li class="collection-item" >Tags: {{programme.tags.join(", ")}}</li>
     <li class="collection-item">Categories: {{programme.categories.join(", ")}}</li>
+    <li class="collection-item">Clip: {{programme.is_clip}}</li>
+
 
 </ul>
+</div>
 
 
