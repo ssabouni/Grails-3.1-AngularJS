@@ -31,7 +31,7 @@ class TestController {
         respond masterbrand, model:[masterbrand:masterbrand]
     }
 
-    def advanced(boolean dubbed, boolean signed, String media, String masterbrand, String keywords,
+    def advanced(boolean dubbed, boolean signed, String media, String brand, String keywords,
                  boolean clip){
         int intClip;
         if (clip){
@@ -43,7 +43,7 @@ class TestController {
 
         //def startTime = params.getDate("startTime")
         //def endTime = params.getDate("endTime")
-        def results = testService.advancedSearch(dubbed, signed, media, masterbrand, keywords, intClip)
+        def results = testService.advancedSearch(dubbed, signed, media, brand, keywords, intClip)
         respond results, model:[advancedResults: results]
     }
 }

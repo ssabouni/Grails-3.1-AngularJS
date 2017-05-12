@@ -60,15 +60,15 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <select name="Consecutivo" ng-model="ctrl.selectedBrand">
+                    <select ng-model="ctrl.selectedBrand" material-select>
                         <option value="" disabled selected>Select the channel</option>
                         <option ng-repeat="brand in ctrl.masterbrands" value="{{brand}}">
                             {{brand}}
                         </option>
-                        <script>
+                        <!--<script>
                             $('select').material_select();
 
-                        </script>
+                        </script>-->
 
                     </select>
 

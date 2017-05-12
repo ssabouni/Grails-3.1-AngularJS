@@ -23,7 +23,6 @@ function QueryController(SearchFactory){
         return string.join(", ");
     };
 
-    vm.selectedMasterbrand=undefined;
     SearchFactory.list({action:'masterbrand'}, function(response){
         vm.masterbrands = response;
         vm.hello="HELLO";
@@ -40,10 +39,12 @@ function QueryController(SearchFactory){
     vm.media= undefined;
     vm.startDate = undefined;
     vm.endDate = undefined;
+    vm.selectedBrand=undefined;
 
     vm.advancedSearch = function(){
+
         SearchFactory.list({action:'advanced', dubbed: vm.dubbed, signed: vm.signed, media:vm.media,
-            brand: vm.brand, keywords:vm.keywords, clip:vm.clip}, function(response){
+            brand: vm.selectedBrand, keywords:vm.keywords, clip:vm.clip}, function(response){
             vm.results = response;
             vm.resultsLength= vm.results.length;
             vm.hello="HELLO";
@@ -76,7 +77,13 @@ function QueryController(SearchFactory){
         vm.results = null;
         vm.clip = null;
         vm.showResults = false;
+        vm.selectedBrand = null;
 
+    };
+
+    vm.select = {
+        value: "Option1",
+        choices: ["Option1", "I'm an option", "This is materialize", "No, this is Patrick."]
     };
 
 
