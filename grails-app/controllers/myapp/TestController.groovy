@@ -5,8 +5,10 @@ class TestController {
     def testService
 
     def search(String keywords){
-        def results = testService.searchMethod(keywords)
-        respond results, model:[resultsCount: results.size()]
+        if (keywords != null){
+            def results = testService.searchMethod(keywords)
+            respond results, model:[resultsCount: results.size()]
+        }
     }
 
     def signed(){

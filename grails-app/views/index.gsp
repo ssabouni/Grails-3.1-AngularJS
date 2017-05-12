@@ -23,6 +23,8 @@
 <nav>
     <div class="container">
     <div class="nav-wrapper">
+        %{--<a class="brand-logo left"><img class="responsive-img" id="logo" src="images/BBC.png"/></a>--}%
+
         <a href="#/" class="brand-logo">BBC</a>
     </div>
     </div>

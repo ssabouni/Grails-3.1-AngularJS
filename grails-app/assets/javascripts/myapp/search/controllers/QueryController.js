@@ -66,7 +66,16 @@ function QueryController(SearchFactory){
         }
     };
 
+    vm.clearAll = function(){
+        vm.dubbed = null;
+        vm.signed= null;
+        vm.media= null;
+        vm.startDate = null;
+        vm.endDate = null;
+        vm.keywords = null;
+        vm.results = null;
 
+    };
 
 
 }

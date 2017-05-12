@@ -1,6 +1,8 @@
-<div class="navbar-form">
+<div class="navbar-form" xmlns="http://www.w3.org/1999/html">
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search for programmes, tags, categories..." name="srch-term" id="srch-term" ng-model="ctrl.keywords" >
+        <input type="text" class="form-control"
+               placeholder="Search for programmes, tags, categories..."
+               name="srch-term" id="srch-term" ng-model="ctrl.keywords" >
     </div>
 </div>
 
@@ -84,15 +86,22 @@
         <button class="btn btn-default" type="submit" ng-click="ctrl.search()" ng-show="!ctrl.showAdvanced">Search<i class="glyphicon glyphicon-search"></i></button>
         <button class="btn btn-default" type="button" ng-click="ctrl.advancedSearch()" ng-show="ctrl.showAdvanced">Advanced Search</button>
 
-        <a class="button" ng-click="ctrl.showForm()">{{ctrl.optionsText}}</a>
+        <a class="button" ng-click="ctrl.showForm()">
+            <span style="text-decoration: underline;">{{ctrl.optionsText}}</span></a>
+        <a class="button" ng-click="ctrl.clearAll()">
+            <span style="text-decoration: underline;">Clear</span></a>
+
+
+
 
     </form>
 </div>
-<div ng-show="ctrl.showResults">
-<p>
 
-    <h4>{{ctrl.resultsLength}} results found.</h4>
-</p>
+<div ng-show="ctrl.showResults">
+    <p>
+     <h4>{{ctrl.resultsLength}} results found.</h4>
+    </p>
+
 <ul class="collection with-header" ng-repeat="programme in ctrl.results">
     <li class="collection-header"><h4>{{programme.complete_title.join(", ")}}</h4></li>
     <li class="collection-item">Available From: {{programme.epoch_start|date:'dd-MMM-yyyy'}}</li>
