@@ -74,6 +74,8 @@ function QueryController(SearchFactory){
         vm.endDate = null;
         vm.keywords = null;
         vm.results = null;
+        vm.clip = null;
+        vm.showResults = false;
 
     };
 
